@@ -1,0 +1,11 @@
+D:\DEV\Test Empresas\Interfell\Src\Api\IntefellApi_V1\Utilities\bin\Debug\net6.0\Utilities.deps.json
+D:\DEV\Test Empresas\Interfell\Src\Api\IntefellApi_V1\Utilities\bin\Debug\net6.0\Utilities.dll
+D:\DEV\Test Empresas\Interfell\Src\Api\IntefellApi_V1\Utilities\bin\Debug\net6.0\Utilities.pdb
+D:\DEV\Test Empresas\Interfell\Src\Api\IntefellApi_V1\Utilities\obj\Debug\net6.0\Utilities.GeneratedMSBuildEditorConfig.editorconfig
+D:\DEV\Test Empresas\Interfell\Src\Api\IntefellApi_V1\Utilities\obj\Debug\net6.0\Utilities.AssemblyInfoInputs.cache
+D:\DEV\Test Empresas\Interfell\Src\Api\IntefellApi_V1\Utilities\obj\Debug\net6.0\Utilities.AssemblyInfo.cs
+D:\DEV\Test Empresas\Interfell\Src\Api\IntefellApi_V1\Utilities\obj\Debug\net6.0\Utilities.csproj.CoreCompileInputs.cache
+D:\DEV\Test Empresas\Interfell\Src\Api\IntefellApi_V1\Utilities\obj\Debug\net6.0\Utilities.dll
+D:\DEV\Test Empresas\Interfell\Src\Api\IntefellApi_V1\Utilities\obj\Debug\net6.0\refint\Utilities.dll
+D:\DEV\Test Empresas\Interfell\Src\Api\IntefellApi_V1\Utilities\obj\Debug\net6.0\Utilities.pdb
+D:\DEV\Test Empresas\Interfell\Src\Api\IntefellApi_V1\Utilities\obj\Debug\net6.0\ref\Utilities.dll

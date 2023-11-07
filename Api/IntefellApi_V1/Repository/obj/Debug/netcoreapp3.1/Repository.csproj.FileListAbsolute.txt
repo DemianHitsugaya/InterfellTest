@@ -1,0 +1,45 @@
+D:\Dev\Portal\Repository\bin\Debug\netcoreapp3.1\Repository.deps.json
+D:\Dev\Portal\Repository\bin\Debug\netcoreapp3.1\Repository.dll
+D:\Dev\Portal\Repository\bin\Debug\netcoreapp3.1\Repository.pdb
+D:\Dev\Portal\Repository\bin\Debug\netcoreapp3.1\LinqKit.dll
+D:\Dev\Portal\Repository\bin\Debug\netcoreapp3.1\Repository.Pattern.dll
+D:\Dev\Portal\Repository\obj\Debug\netcoreapp3.1\Repository.csprojAssemblyReference.cache
+D:\Dev\Portal\Repository\obj\Debug\netcoreapp3.1\Repository.AssemblyInfoInputs.cache
+D:\Dev\Portal\Repository\obj\Debug\netcoreapp3.1\Repository.AssemblyInfo.cs
+D:\Dev\Portal\Repository\obj\Debug\netcoreapp3.1\Repository.csproj.CoreCompileInputs.cache
+D:\Dev\Portal\Repository\obj\Debug\netcoreapp3.1\Repository.csproj.CopyComplete
+D:\Dev\Portal\Repository\obj\Debug\netcoreapp3.1\Repository.dll
+D:\Dev\Portal\Repository\obj\Debug\netcoreapp3.1\Repository.pdb
+D:\Dev\ApiAmadeus\Repository\obj\Debug\netcoreapp3.1\Repository.csprojAssemblyReference.cache
+D:\Dev\ApiAmadeus\Repository\obj\Debug\netcoreapp3.1\Repository.AssemblyInfoInputs.cache
+D:\Dev\ApiAmadeus\Repository\obj\Debug\netcoreapp3.1\Repository.AssemblyInfo.cs
+D:\Dev\ApiAmadeus\Repository\obj\Debug\netcoreapp3.1\Repository.csproj.CoreCompileInputs.cache
+D:\Dev\ApiAmadeus\Repository\obj\Debug\netcoreapp3.1\Repository.dll
+D:\Dev\ApiAmadeus\Repository\obj\Debug\netcoreapp3.1\Repository.pdb
+D:\Dev\ApiAmadeus\Repository\bin\Debug\netcoreapp3.1\Repository.deps.json
+D:\Dev\ApiAmadeus\Repository\bin\Debug\netcoreapp3.1\Repository.dll
+D:\Dev\ApiAmadeus\Repository\bin\Debug\netcoreapp3.1\Repository.pdb
+D:\Dev\ApiAmadeus\Repository\bin\Debug\netcoreapp3.1\Repository.Pattern.dll
+D:\Dev\ApiAmadeus\Repository\obj\Debug\netcoreapp3.1\Repository.csproj.CopyComplete
+D:\Dev\Test Empresas\ApiAmadeus\Repository\obj\Debug\netcoreapp3.1\Repository.AssemblyInfoInputs.cache
+D:\Dev\Test Empresas\ApiAmadeus\Repository\obj\Debug\netcoreapp3.1\Repository.AssemblyInfo.cs
+D:\Dev\Test Empresas\ApiAmadeus\Repository\obj\Debug\netcoreapp3.1\Repository.csproj.CoreCompileInputs.cache
+D:\Dev\Test Empresas\ApiAmadeus\Repository\obj\Debug\netcoreapp3.1\Repository.dll
+D:\Dev\Test Empresas\ApiAmadeus\Repository\obj\Debug\netcoreapp3.1\Repository.pdb
+D:\Dev\Test Empresas\ApiAmadeus\Repository\bin\Debug\netcoreapp3.1\Repository.deps.json
+D:\Dev\Test Empresas\ApiAmadeus\Repository\bin\Debug\netcoreapp3.1\Repository.dll
+D:\Dev\Test Empresas\ApiAmadeus\Repository\bin\Debug\netcoreapp3.1\Repository.pdb
+D:\Dev\Test Empresas\ApiAmadeus\Repository\bin\Debug\netcoreapp3.1\Repository.Pattern.dll
+D:\Dev\Test Empresas\ApiAmadeus\Repository\obj\Debug\netcoreapp3.1\Repository.csproj.CopyComplete
+D:\Dev\Test Empresas\ApiAmadeus\Repository\obj\Debug\netcoreapp3.1\Repository.csprojAssemblyReference.cache
+D:\Dev\Test Empresas\TestNexxos\Repository\bin\Debug\netcoreapp3.1\Repository.deps.json
+D:\Dev\Test Empresas\TestNexxos\Repository\bin\Debug\netcoreapp3.1\Repository.dll
+D:\Dev\Test Empresas\TestNexxos\Repository\bin\Debug\netcoreapp3.1\Repository.pdb
+D:\Dev\Test Empresas\TestNexxos\Repository\bin\Debug\netcoreapp3.1\Repository.Pattern.dll
+D:\Dev\Test Empresas\TestNexxos\Repository\obj\Debug\netcoreapp3.1\Repository.AssemblyInfoInputs.cache
+D:\Dev\Test Empresas\TestNexxos\Repository\obj\Debug\netcoreapp3.1\Repository.AssemblyInfo.cs
+D:\Dev\Test Empresas\TestNexxos\Repository\obj\Debug\netcoreapp3.1\Repository.csproj.CoreCompileInputs.cache
+D:\Dev\Test Empresas\TestNexxos\Repository\obj\Debug\netcoreapp3.1\Repository.dll
+D:\Dev\Test Empresas\TestNexxos\Repository\obj\Debug\netcoreapp3.1\Repository.pdb
+D:\Dev\Test Empresas\TestNexxos\Repository\obj\Debug\netcoreapp3.1\Repository.GeneratedMSBuildEditorConfig.editorconfig
+D:\Dev\Test Empresas\TestNexxos\Repository\obj\Debug\netcoreapp3.1\Repository.csproj.AssemblyReference.cache

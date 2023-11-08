@@ -24,6 +24,12 @@ namespace Facade.Mappers
             CreateMap<RegionDTO, Region>().ReverseMap();
             CreateMap<ComunaDTO, Comuna>().ReverseMap();
             CreateMap<UserDTO, User>().ReverseMap();
+            CreateMap<LoggerDTO, Logger>().ReverseMap();
+            CreateMap<AyudaDTO, Ayuda>().ReverseMap();
+            CreateMap<PersonasDTO,Persona>().ReverseMap();
+            CreateMap<AyudaPersonaDTO, PersonaAyuda>().ReverseMap();
+            CreateMap<AyudaComunaDTO, AyudasComuna>().ReverseMap();
+            CreateMap<AyudaRegionDTO,AyudasRegion>().ReverseMap();
         }
 
     }

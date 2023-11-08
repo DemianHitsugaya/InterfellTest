@@ -15,6 +15,19 @@ namespace Business.Business
         {
         }
 
+        public int CreateLastId(Ayuda entity)
+        {
+            try
+            {
+                Add(entity);
+                return (int)entity.IdAyuda;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
         public override bool Add(Ayuda entity)
         {
             try

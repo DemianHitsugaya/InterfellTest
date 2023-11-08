@@ -14,9 +14,11 @@ namespace Interfell.API.Controllers
     public class UserController : ControllerBase
     {
         private UserFacade _userFacade;
+        private LoggerFacade _loggerFacade;
         public UserController(IOptions<SettingsHelper> settings, IOptions<Jwt> jwt)
         {
             _userFacade = new UserFacade(settings.Value, jwt.Value);
+            _loggerFacade = new LoggerFacade(settings.Value);
         }
 
 
@@ -29,7 +31,7 @@ namespace Interfell.API.Controllers
                 if (login == null) { return BadRequest("Entity is null"); }
                 if (!token.UserValid) return Unauthorized("Usuario y/o Password Incorrectos");
 
-                return Ok(token);
+                return Ok(token.Token);
             }
             catch (Exception ex)
             {
@@ -50,6 +52,20 @@ namespace Interfell.API.Controllers
                     return UnprocessableEntity("Created Failed");
 
                 return Ok("Usuario Creado Correctamente");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex);
+            }
+        }
+
+        [HttpGet("GetLogs")]
+        [Authorize]
+        public IActionResult GetLogs([FromQuery] DateTime datefilter)
+        {
+            try
+            {
+                return Ok(_loggerFacade.GetLogs(datefilter));
             }
             catch (Exception ex)
             {

@@ -4,6 +4,7 @@ using Entities.Entities;
 using Facade.DTOs;
 using Facade.Mappers;
 using Microsoft.IdentityModel.Tokens;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
@@ -15,13 +16,15 @@ using Utilities;
 
 namespace Facade.Logic
 {
-  
+
     public class UserFacade
     {
         private IMapper _mapper;
         private UsuariosBusiness _userBusiness;
         private Jwt _jwt;
-        public UserFacade(SettingsHelper settings , Jwt jwt)
+        private LoggerFacade _logger;
+
+        public UserFacade(SettingsHelper settings, Jwt jwt)
         {
             if (settings == null)
                 throw new ArgumentNullException(nameof(settings));
@@ -32,23 +35,23 @@ namespace Facade.Logic
             _jwt = jwt;
 
             _mapper = Mapping.configMapper();
-
+            _logger = new LoggerFacade(settings);
         }
 
         public TokenDTO Login(LoginDTO login)
         {
             try
             {
-                TokenDTO tokenresult = new TokenDTO();    
+                TokenDTO tokenresult = new TokenDTO();
                 var usuario = _userBusiness.Get(login.Username);
                 if (usuario == null)
                     throw new ArgumentException(nameof(login));
 
-                if(string.IsNullOrEmpty(login.Username) || string.IsNullOrEmpty(login.Password))
+                if (string.IsNullOrEmpty(login.Username) || string.IsNullOrEmpty(login.Password))
                 {
                     tokenresult.UserValid = false;
                     tokenresult.Token = string.Empty;
-                    return tokenresult; 
+                    return tokenresult;
                 }
 
                 if (Security.Validat(usuario.UserPsw, login.Password))
@@ -63,7 +66,7 @@ namespace Facade.Logic
                     };
 
                     var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwt.Key));
-                    var signIn = new SigningCredentials(key,SecurityAlgorithms.HmacSha256);
+                    var signIn = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
                     var token = new JwtSecurityToken(
                         _jwt.Issuer,
@@ -80,7 +83,7 @@ namespace Facade.Logic
                     tokenresult.Token = string.Empty;
                     tokenresult.UserValid = false;
                 }
-
+                _logger.Log(Entidades.Users, Acciones.Login, (int)usuario.UserId, JsonConvert.SerializeObject(new { Fullname = usuario.FullName, username = usuario.UserName }));
                 return tokenresult;
 
             }
@@ -104,6 +107,7 @@ namespace Facade.Logic
                     var hashPsw = Security.Hash(entity.UserPsw);
                     if (hashPsw != null) { entity.UserPsw = hashPsw; }
                 }
+                _logger.Log(Entidades.Users, Acciones.Create, JsonConvert.SerializeObject(new { Fullname = entity.FullName, username = entity.UserName }));
 
                 return _userBusiness.Add(_mapper.Map<User>(entity));
             }

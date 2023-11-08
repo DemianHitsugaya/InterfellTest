@@ -68,11 +68,11 @@ namespace Business.Business
         }
 
 
-        public IEnumerable<Logger> GetLogs(DateTime date)
+        public IEnumerable<Logger> GetLogs(DateOnly date)
         {
             try
             {
-                return BaseRepository.Query(x => x.Fecha == DateOnly.FromDateTime(date.Date)).Select();
+                return BaseRepository.Query(x => x.Fecha == date).Select();
             }
             catch (Exception)
             {

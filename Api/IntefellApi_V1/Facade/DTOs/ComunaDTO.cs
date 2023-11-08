@@ -8,6 +8,9 @@ namespace Facade.DTOs
 {
     public class ComunaDTO
     {
+        public int IdComuna;
         public string NomComuna { get; set; } = null!;
+
+        public RegionDTO? Region { get; set; }
     }
 }

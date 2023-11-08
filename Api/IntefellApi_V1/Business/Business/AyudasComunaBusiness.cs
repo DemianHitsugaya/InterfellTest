@@ -30,15 +30,15 @@ namespace Business.Business
             }
         }
 
-        public bool AddRange(IEnumerable<AyudasComuna> personaAyudas)
+        public bool AddRange(IEnumerable<AyudasComuna> ayudasComunas)
         {
             try
             {
-                if (!personaAyudas.Any())
+                if (!ayudasComunas.Any())
                     throw new ArgumentNullException(this.GetType().Name);
 
-                BaseRepository.InsertRange(personaAyudas);
-                return unitOfWork.SaveChanges() == personaAyudas.Count();
+                BaseRepository.InsertRange(ayudasComunas);
+                return unitOfWork.SaveChanges() == ayudasComunas.Count();
 
             }
             catch (Exception)
@@ -73,13 +73,18 @@ namespace Business.Business
         {
             try
             {
-                var ArrayEntities = entities.ToArray();
-                for (int i = 0; i < ArrayEntities.Length; i++)
+                if (entities.Any())
                 {
-                    BaseRepository.Delete(ArrayEntities[i]);
-                }
+                    var ArrayEntities = entities.ToArray();
+                    for (int i = 0; i < ArrayEntities.Length; i++)
+                    {
+                        BaseRepository.Delete(ArrayEntities[i]);
+                    }
 
-                return unitOfWork.SaveChanges() == ArrayEntities.Length;
+                    return unitOfWork.SaveChanges() == ArrayEntities.Length;
+                }
+                else
+                    return true;
             }
             catch (Exception)
             {

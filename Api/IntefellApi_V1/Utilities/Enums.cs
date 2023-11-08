@@ -20,4 +20,16 @@ namespace Utilities
         Roles,
         Users
     }
+
+    public enum Acciones
+    {
+        Create = 1,
+        CreateRange,
+        Update,
+        Delete,
+        DeleteRange,
+        ReadOne,
+        ReadAll,
+        Login
+    }
 }

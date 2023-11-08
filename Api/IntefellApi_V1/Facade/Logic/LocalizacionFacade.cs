@@ -4,11 +4,13 @@ using Entities.Entities;
 using Facade.DTOs;
 using Facade.Mappers;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.InteropServices;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 using Utilities;
@@ -22,6 +24,7 @@ namespace Facade.Logic
         private ComunaBusiness _comunaBusiness;
         private RegionAyudasBusiness _regionayudaBusiness;
         private AyudasComunaBusiness _comunaAyudaBusiness;
+        private LoggerFacade _logger;
 
         private IMapper _mapper;
 
@@ -38,6 +41,8 @@ namespace Facade.Logic
             _regionayudaBusiness = new RegionAyudasBusiness(settings);
             _comunaAyudaBusiness = new AyudasComunaBusiness(settings);
 
+            _logger = new LoggerFacade(settings);
+
 
             _mapper = Mapping.configMapper();
         }
@@ -49,6 +54,7 @@ namespace Facade.Logic
             try
             {
                 var pais = _paisBusiness.Get(paisId);
+                _logger.Log(Entidades.Pais, Acciones.ReadOne, JsonConvert.SerializeObject(pais));
                 return _mapper.Map<PaisDTO>(pais);
             }
             catch (Exception)
@@ -63,6 +69,7 @@ namespace Facade.Logic
             try
             {
                 var pais = _paisBusiness.Get(nombrePais);
+                _logger.Log(Entidades.Pais, Acciones.ReadOne, JsonConvert.SerializeObject(pais));
                 return _mapper.Map<PaisDTO>(pais);
             }
             catch (Exception)
@@ -77,6 +84,7 @@ namespace Facade.Logic
             try
             {
                 var paises = _paisBusiness.GetAll();
+                _logger.Log(Entidades.Pais, Acciones.ReadAll, JsonConvert.SerializeObject(paises));
                 return _mapper.Map<IEnumerable<Pais>, IEnumerable<PaisDTO>>(paises);
             }
             catch (Exception)
@@ -91,6 +99,7 @@ namespace Facade.Logic
         {
             try
             {
+                _logger.Log(Entidades.Pais, Acciones.Create, string.Empty, JsonConvert.SerializeObject(pais));
                 return _paisBusiness.Add(_mapper.Map<Pais>(pais));
             }
             catch (Exception)
@@ -108,7 +117,7 @@ namespace Facade.Logic
                 {
                     opt.AfterMap((src, dest) => dest.IdPais = oldEntity.IdPais);
                 });
-
+                _logger.Log(Entidades.Pais, Acciones.Update, JsonConvert.SerializeObject(oldEntity), JsonConvert.SerializeObject(newEntity));
                 return _paisBusiness.Update(newEntity);
 
             }
@@ -126,34 +135,34 @@ namespace Facade.Logic
 
                 if (enCascada)
                 {
-                    var regiones = _regionBusiness.GetByPais(paisID);
-                    var arrayRegiones = regiones.Select(x => (int)x.IdRegion).ToArray();
+                    var regiones = _regionBusiness.GetByPais(paisID);                 
                     if (regiones.Any())
                     {
-                        for (int i = 0; i <= arrayRegiones.Length; i++)
+                        var arrayRegiones = regiones.Select(x => (int)x.IdRegion).ToList();
+                        var comunas  = _comunaBusiness.GetAll().Where(x=> arrayRegiones.Contains((int)x.CodRegion)).ToList();                       
+
+                        if (comunas.Any())
                         {
-                            var comunas = _comunaBusiness.GetByRegion(arrayRegiones[i]);
-                            if (comunas.Any())
-                            {
-                                var comunasIds = comunas.Select(x => (int)x.IdComuna).ToArray();
-                                for (int j = 0; j < comunasIds.Length; j++)
-                                {
-                                    var ayudas_comunas = _comunaAyudaBusiness.GetByComuna(comunasIds[j]);
-                                    if (ayudas_comunas.Any())
-                                        _comunaAyudaBusiness.DeleteRange(ayudas_comunas);
-                                }
-                                _comunaBusiness.DeleteRange(comunas);
+                            var comunasIds = comunas.Select(x => x.IdComuna).ToList();
+                            var ayudas_comuna = _comunaAyudaBusiness.GetAll().Where(x=> comunasIds.Contains(x.ComunaId)).ToList();
+                            
+                            if(!_comunaAyudaBusiness.DeleteRange(ayudas_comuna))
+                                return false;
 
-                            }
-
-                            var ayudas_region = _regionayudaBusiness.GetByRegion(arrayRegiones[i]);
-                            if (ayudas_region.Any())
-                                _regionayudaBusiness.DeleteRange(ayudas_region);
+                            if (!_comunaBusiness.DeleteRange(comunas))
+                                return false;
                         }
-                        _regionBusiness.DeleteRange(regiones);
+
+
+                        var regionAyuda = _regionayudaBusiness.GetAll().Where(x => arrayRegiones.Contains((int)x.RegionId)).ToList();
+                        if (!_regionayudaBusiness.DeleteRange(regionAyuda))
+                            return false;                        
+
+                        if (!_regionBusiness.DeleteRange(regiones))
+                            return false;
                     }
                 }
-
+                _logger.Log(Entidades.Pais, Acciones.Delete, JsonConvert.SerializeObject(new { idPais = paisID }));
                 return _paisBusiness.Delete(paisID);
             }
             catch (Exception)
@@ -172,6 +181,7 @@ namespace Facade.Logic
         {
             try
             {
+                _logger.Log(Entidades.Region, Acciones.Create, string.Empty, JsonConvert.SerializeObject(regionDTO));
                 return _regionBusiness.Add(_mapper.Map<Region>(regionDTO));
             }
             catch (Exception)
@@ -189,7 +199,7 @@ namespace Facade.Logic
                 {
                     opt.AfterMap((src, dest) => dest.IdRegion = oldEntity.IdRegion);
                 });
-
+                _logger.Log(Entidades.Region, Acciones.Update, JsonConvert.SerializeObject(oldEntity), JsonConvert.SerializeObject(newEntity));
                 return _regionBusiness.Update(newEntity);
 
             }
@@ -207,22 +217,25 @@ namespace Facade.Logic
 
                 if (enCascada)
                 {
-                    var comunas = _comunaBusiness.GetByRegion(regionId);
-                    var comunasIds = comunas.Select(x => (int)x.IdComuna).ToArray();
-                    for (int j = 0; j < comunasIds.Length; j++)
-                    {
-                        var ayudas_comunas = _comunaAyudaBusiness.GetByComuna(comunasIds[j]);
-                        if (ayudas_comunas.Any())
-                            _comunaAyudaBusiness.DeleteRange(ayudas_comunas);
-                    }
-                    _comunaBusiness.DeleteRange(comunas);
+                    var comunas = _comunaBusiness.GetByRegion(regionId);               
 
-                    var ayudas_region = _regionayudaBusiness.GetByRegion(regionId);
-                    if (ayudas_region.Any())
-                        _regionayudaBusiness.DeleteRange(ayudas_region);
+                    if (comunas.Any())
+                    {
+                        var comunasIds = comunas.Select(x => x.IdComuna).ToList();
+                        var ayudas_comuna = _comunaAyudaBusiness.GetAll().Where(x => comunasIds.Contains(x.ComunaId)).ToList();
+                        _comunaAyudaBusiness.DeleteRange(ayudas_comuna);
+
+                        if (!_comunaBusiness.DeleteRange(comunas))
+                            return false;
+                    }
+
+
+                    var regionAyuda = _regionayudaBusiness.GetByRegion(regionId);
+                    if (!_regionayudaBusiness.DeleteRange(regionAyuda))
+                        return false;
                 }
 
-
+                _logger.Log(Entidades.Region, Acciones.Delete, JsonConvert.SerializeObject(new { idRegion = regionId }));
                 return _regionBusiness.Delete(regionId);
             }
             catch (Exception)
@@ -237,6 +250,7 @@ namespace Facade.Logic
             try
             {
                 var region = _regionBusiness.Get(regionId);
+                _logger.Log(Entidades.Region, Acciones.ReadOne, JsonConvert.SerializeObject(region));
                 return _mapper.Map<RegionDTO>(region);
             }
             catch (Exception)
@@ -251,6 +265,7 @@ namespace Facade.Logic
             try
             {
                 var regiones = _regionBusiness.GetAll();
+                _logger.Log(Entidades.Region, Acciones.ReadAll, JsonConvert.SerializeObject(regiones));
                 return _mapper.Map<IEnumerable<Region>, IEnumerable<RegionDTO>>(regiones);
             }
             catch (Exception)
@@ -266,6 +281,7 @@ namespace Facade.Logic
             try
             {
                 var region = _regionBusiness.Get(nombreRegion);
+                _logger.Log(Entidades.Region, Acciones.ReadOne, JsonConvert.SerializeObject(region));
                 return _mapper.Map<RegionDTO>(region);
             }
             catch (Exception)
@@ -282,6 +298,7 @@ namespace Facade.Logic
         {
             try
             {
+                _logger.Log(Entidades.Region, Acciones.Create, string.Empty, JsonConvert.SerializeObject(comunaDTO));
                 return _comunaBusiness.Add(_mapper.Map<Comuna>(comunaDTO));
             }
             catch (Exception)
@@ -298,7 +315,7 @@ namespace Facade.Logic
                 {
                     opt.AfterMap((src, dest) => dest.IdComuna = oldEntity.IdComuna);
                 });
-
+                _logger.Log(Entidades.Comuna, Acciones.Update, JsonConvert.SerializeObject(oldEntity), JsonConvert.SerializeObject(newEntity));
                 return _comunaBusiness.Update(newEntity);
 
             }
@@ -320,6 +337,8 @@ namespace Facade.Logic
                         _comunaAyudaBusiness.DeleteRange(ayudas_comunas);
 
                 }
+
+                _logger.Log(Entidades.Comuna, Acciones.Delete, JsonConvert.SerializeObject(new { ComunaId = comunaId }));
                 return _comunaBusiness.Delete(comunaId);
             }
             catch (Exception)
@@ -333,6 +352,7 @@ namespace Facade.Logic
             try
             {
                 var comuna = _comunaBusiness.Get(comunaId);
+                _logger.Log(Entidades.Comuna, Acciones.ReadOne, JsonConvert.SerializeObject(comuna));
                 return _mapper.Map<ComunaDTO>(comuna);
             }
             catch (Exception)
@@ -346,6 +366,7 @@ namespace Facade.Logic
             try
             {
                 var comuna = _comunaBusiness.Get(nombreComuna);
+                _logger.Log(Entidades.Comuna, Acciones.ReadOne, JsonConvert.SerializeObject(comuna));
                 return _mapper.Map<ComunaDTO>(comuna);
             }
             catch (Exception)
@@ -358,7 +379,23 @@ namespace Facade.Logic
         {
             try
             {
-                var comunas= _comunaBusiness.GetAll();
+                var comunas = _comunaBusiness.GetAll();
+                _logger.Log(Entidades.Comuna, Acciones.ReadAll, JsonConvert.SerializeObject(comunas));
+                return _mapper.Map<IEnumerable<Comuna>, IEnumerable<ComunaDTO>>(comunas);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public IEnumerable<ComunaDTO> GetComunas(int RegionId)
+        {
+            try
+            {
+                var comunas = _comunaBusiness.GetByRegion(RegionId);
+                _logger.Log(Entidades.Comuna, Acciones.ReadAll, JsonConvert.SerializeObject(comunas));
                 return _mapper.Map<IEnumerable<Comuna>, IEnumerable<ComunaDTO>>(comunas);
             }
             catch (Exception)

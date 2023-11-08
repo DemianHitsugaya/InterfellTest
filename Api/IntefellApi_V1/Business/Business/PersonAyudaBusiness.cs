@@ -21,6 +21,8 @@ namespace Business.Business
             try
             {
                 if (entity == null) { throw new ArgumentNullException(this.GetType().Name); }
+                if (!Validate(entity.IdentificacionPersona, (int)entity.AyudaId, (int)entity.Año))
+                    throw new ArgumentException("Invalid Data, Already exist a record with this data"); 
                 BaseRepository.Insert(entity);
                 return unitOfWork.SaveChanges() > 0;
             }
@@ -31,11 +33,11 @@ namespace Business.Business
         }
 
 
-        public bool AddRange (IEnumerable<PersonaAyuda> personaAyudas)
+        public bool AddRange(IEnumerable<PersonaAyuda> personaAyudas)
         {
             try
             {
-                if(!personaAyudas.Any())
+                if (!personaAyudas.Any())
                     throw new ArgumentNullException(this.GetType().Name);
 
                 BaseRepository.InsertRange(personaAyudas);
@@ -59,13 +61,18 @@ namespace Business.Business
         {
             try
             {
-                var ArrayEntities = entities.ToArray();
-                for (int i = 0; i < ArrayEntities.Length; i++)
+                if (entities.Any())
                 {
-                    BaseRepository.Delete(ArrayEntities[i]);
-                }
+                    var ArrayEntities = entities.ToArray();
+                    for (int i = 0; i < ArrayEntities.Length; i++)
+                    {
+                        BaseRepository.Delete(ArrayEntities[i]);
+                    }
 
-                return unitOfWork.SaveChanges() == ArrayEntities.Length;
+                    return unitOfWork.SaveChanges() == ArrayEntities.Length;
+                }
+                else
+                    return true;
             }
             catch (Exception)
             {
@@ -93,7 +100,24 @@ namespace Business.Business
 
         public override PersonaAyuda Get(int entityID)
         {
-           return default(PersonaAyuda);
+            return default(PersonaAyuda);
+        }
+
+        private bool Validate(string numeroIdentificacion, int ayudaId, int year)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(numeroIdentificacion) || ayudaId <= 0 || year <= 0)
+                    throw new ArgumentNullException("Don't exist records with this data ");
+
+                return !BaseRepository
+                    .Query(x => x.IdentificacionPersona == numeroIdentificacion && x.AyudaId == ayudaId && x.Año == year)
+                    .Select().Any();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         public override IEnumerable<PersonaAyuda> GetAll()

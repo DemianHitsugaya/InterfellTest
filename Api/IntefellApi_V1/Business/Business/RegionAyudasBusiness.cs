@@ -57,13 +57,18 @@ namespace Business.Business
         {
             try
             {
-                var ArrayEntities = entities.ToArray();
-                for (int i = 0; i < ArrayEntities.Length; i++)
+                if (entities.Any())
                 {
-                    BaseRepository.Delete(ArrayEntities[i]);
-                }
+                    var ArrayEntities = entities.ToArray();
+                    for (int i = 0; i < ArrayEntities.Length; i++)
+                    {
+                        BaseRepository.Delete(ArrayEntities[i]);
+                    }
 
-                return unitOfWork.SaveChanges() == ArrayEntities.Length;
+                    return unitOfWork.SaveChanges() == ArrayEntities.Length;
+                }
+                else
+                    return true;
             }
             catch (Exception)
             {

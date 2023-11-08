@@ -20,3 +20,25 @@ D:\DEV\Test Empresas\Interfell\Src\Api\IntefellApi_V1\Facade\obj\Debug\net6.0\Fa
 D:\DEV\Test Empresas\Interfell\Src\Api\IntefellApi_V1\Facade\obj\Debug\net6.0\refint\Facade.dll
 D:\DEV\Test Empresas\Interfell\Src\Api\IntefellApi_V1\Facade\obj\Debug\net6.0\Facade.pdb
 D:\DEV\Test Empresas\Interfell\Src\Api\IntefellApi_V1\Facade\obj\Debug\net6.0\ref\Facade.dll
+D:\DEV\.Net\Interfell\Src\Api\IntefellApi_V1\Facade\bin\Debug\net6.0\Facade.deps.json
+D:\DEV\.Net\Interfell\Src\Api\IntefellApi_V1\Facade\bin\Debug\net6.0\Facade.dll
+D:\DEV\.Net\Interfell\Src\Api\IntefellApi_V1\Facade\bin\Debug\net6.0\Facade.pdb
+D:\DEV\.Net\Interfell\Src\Api\IntefellApi_V1\Facade\bin\Debug\net6.0\Business.dll
+D:\DEV\.Net\Interfell\Src\Api\IntefellApi_V1\Facade\bin\Debug\net6.0\Entities.dll
+D:\DEV\.Net\Interfell\Src\Api\IntefellApi_V1\Facade\bin\Debug\net6.0\Repository.dll
+D:\DEV\.Net\Interfell\Src\Api\IntefellApi_V1\Facade\bin\Debug\net6.0\Utilities.dll
+D:\DEV\.Net\Interfell\Src\Api\IntefellApi_V1\Facade\bin\Debug\net6.0\Repository.Pattern.dll
+D:\DEV\.Net\Interfell\Src\Api\IntefellApi_V1\Facade\bin\Debug\net6.0\Business.pdb
+D:\DEV\.Net\Interfell\Src\Api\IntefellApi_V1\Facade\bin\Debug\net6.0\Entities.pdb
+D:\DEV\.Net\Interfell\Src\Api\IntefellApi_V1\Facade\bin\Debug\net6.0\Utilities.pdb
+D:\DEV\.Net\Interfell\Src\Api\IntefellApi_V1\Facade\bin\Debug\net6.0\Repository.pdb
+D:\DEV\.Net\Interfell\Src\Api\IntefellApi_V1\Facade\obj\Debug\net6.0\Facade.csproj.AssemblyReference.cache
+D:\DEV\.Net\Interfell\Src\Api\IntefellApi_V1\Facade\obj\Debug\net6.0\Facade.GeneratedMSBuildEditorConfig.editorconfig
+D:\DEV\.Net\Interfell\Src\Api\IntefellApi_V1\Facade\obj\Debug\net6.0\Facade.AssemblyInfoInputs.cache
+D:\DEV\.Net\Interfell\Src\Api\IntefellApi_V1\Facade\obj\Debug\net6.0\Facade.AssemblyInfo.cs
+D:\DEV\.Net\Interfell\Src\Api\IntefellApi_V1\Facade\obj\Debug\net6.0\Facade.csproj.CoreCompileInputs.cache
+D:\DEV\.Net\Interfell\Src\Api\IntefellApi_V1\Facade\obj\Debug\net6.0\Facade.csproj.CopyComplete
+D:\DEV\.Net\Interfell\Src\Api\IntefellApi_V1\Facade\obj\Debug\net6.0\Facade.dll
+D:\DEV\.Net\Interfell\Src\Api\IntefellApi_V1\Facade\obj\Debug\net6.0\refint\Facade.dll
+D:\DEV\.Net\Interfell\Src\Api\IntefellApi_V1\Facade\obj\Debug\net6.0\Facade.pdb
+D:\DEV\.Net\Interfell\Src\Api\IntefellApi_V1\Facade\obj\Debug\net6.0\ref\Facade.dll

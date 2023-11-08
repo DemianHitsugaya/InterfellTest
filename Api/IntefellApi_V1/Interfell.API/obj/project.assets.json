@@ -2837,11 +2837,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\DEV\\Test Empresas\\Interfell\\Src\\Api\\IntefellApi_V1\\Interfell.API\\Interfell.API.csproj",
+      "projectUniqueName": "D:\\DEV\\.Net\\Interfell\\Src\\Api\\IntefellApi_V1\\Interfell.API\\Interfell.API.csproj",
       "projectName": "Interfell.API",
-      "projectPath": "D:\\DEV\\Test Empresas\\Interfell\\Src\\Api\\IntefellApi_V1\\Interfell.API\\Interfell.API.csproj",
+      "projectPath": "D:\\DEV\\.Net\\Interfell\\Src\\Api\\IntefellApi_V1\\Interfell.API\\Interfell.API.csproj",
       "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-      "outputPath": "D:\\DEV\\Test Empresas\\Interfell\\Src\\Api\\IntefellApi_V1\\Interfell.API\\obj\\",
+      "outputPath": "D:\\DEV\\.Net\\Interfell\\Src\\Api\\IntefellApi_V1\\Interfell.API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -2863,11 +2863,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\DEV\\Test Empresas\\Interfell\\Src\\Api\\IntefellApi_V1\\Facade\\Facade.csproj": {
-              "projectPath": "D:\\DEV\\Test Empresas\\Interfell\\Src\\Api\\IntefellApi_V1\\Facade\\Facade.csproj"
+            "D:\\DEV\\.Net\\Interfell\\Src\\Api\\IntefellApi_V1\\Facade\\Facade.csproj": {
+              "projectPath": "D:\\DEV\\.Net\\Interfell\\Src\\Api\\IntefellApi_V1\\Facade\\Facade.csproj"
             },
-            "D:\\DEV\\Test Empresas\\Interfell\\Src\\Api\\IntefellApi_V1\\Utilities\\Utilities.csproj": {
-              "projectPath": "D:\\DEV\\Test Empresas\\Interfell\\Src\\Api\\IntefellApi_V1\\Utilities\\Utilities.csproj"
+            "D:\\DEV\\.Net\\Interfell\\Src\\Api\\IntefellApi_V1\\Utilities\\Utilities.csproj": {
+              "projectPath": "D:\\DEV\\.Net\\Interfell\\Src\\Api\\IntefellApi_V1\\Utilities\\Utilities.csproj"
             }
           }
         }

@@ -2390,11 +2390,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\DEV\\Test Empresas\\Interfell\\Src\\Api\\IntefellApi_V1\\Facade\\Facade.csproj",
+      "projectUniqueName": "D:\\DEV\\.Net\\Interfell\\Src\\Api\\IntefellApi_V1\\Facade\\Facade.csproj",
       "projectName": "Facade",
-      "projectPath": "D:\\DEV\\Test Empresas\\Interfell\\Src\\Api\\IntefellApi_V1\\Facade\\Facade.csproj",
+      "projectPath": "D:\\DEV\\.Net\\Interfell\\Src\\Api\\IntefellApi_V1\\Facade\\Facade.csproj",
       "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-      "outputPath": "D:\\DEV\\Test Empresas\\Interfell\\Src\\Api\\IntefellApi_V1\\Facade\\obj\\",
+      "outputPath": "D:\\DEV\\.Net\\Interfell\\Src\\Api\\IntefellApi_V1\\Facade\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -2416,14 +2416,14 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\DEV\\Test Empresas\\Interfell\\Src\\Api\\IntefellApi_V1\\Business\\Business.csproj": {
-              "projectPath": "D:\\DEV\\Test Empresas\\Interfell\\Src\\Api\\IntefellApi_V1\\Business\\Business.csproj"
+            "D:\\DEV\\.Net\\Interfell\\Src\\Api\\IntefellApi_V1\\Business\\Business.csproj": {
+              "projectPath": "D:\\DEV\\.Net\\Interfell\\Src\\Api\\IntefellApi_V1\\Business\\Business.csproj"
             },
-            "D:\\DEV\\Test Empresas\\Interfell\\Src\\Api\\IntefellApi_V1\\Entities\\Entities.csproj": {
-              "projectPath": "D:\\DEV\\Test Empresas\\Interfell\\Src\\Api\\IntefellApi_V1\\Entities\\Entities.csproj"
+            "D:\\DEV\\.Net\\Interfell\\Src\\Api\\IntefellApi_V1\\Entities\\Entities.csproj": {
+              "projectPath": "D:\\DEV\\.Net\\Interfell\\Src\\Api\\IntefellApi_V1\\Entities\\Entities.csproj"
             },
-            "D:\\DEV\\Test Empresas\\Interfell\\Src\\Api\\IntefellApi_V1\\Utilities\\Utilities.csproj": {
-              "projectPath": "D:\\DEV\\Test Empresas\\Interfell\\Src\\Api\\IntefellApi_V1\\Utilities\\Utilities.csproj"
+            "D:\\DEV\\.Net\\Interfell\\Src\\Api\\IntefellApi_V1\\Utilities\\Utilities.csproj": {
+              "projectPath": "D:\\DEV\\.Net\\Interfell\\Src\\Api\\IntefellApi_V1\\Utilities\\Utilities.csproj"
             }
           }
         }

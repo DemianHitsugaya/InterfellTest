@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "AZFGYxTZO9F+vSm09kOnQNcbG+yGZ0ogX5BeFYTwbluGeyku6xeP6qYPhiR85ZMkmqHsM1ms/5zUreYjnZo3jA==",
+  "dgSpecHash": "RyQdZbXdRT8SNEwXLgRVrDTKaAnA/yx9yYyFiTFlyGm9JG/33+jbBNxPEvqYha6aXMAMIEu32XIErn6KSVJh2Q==",
   "success": true,
-  "projectFilePath": "D:\\DEV\\Test Empresas\\Interfell\\Src\\Api\\IntefellApi_V1\\Repository\\Repository.csproj",
+  "projectFilePath": "D:\\DEV\\.Net\\Interfell\\Src\\Api\\IntefellApi_V1\\Repository\\Repository.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\user\\.nuget\\packages\\aspnet.core.repository\\2.1.0\\aspnet.core.repository.2.1.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\entityframework\\6.3.0\\entityframework.6.3.0.nupkg.sha512",

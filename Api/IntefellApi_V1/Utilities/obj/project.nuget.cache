@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "HfFKHw5uzyjMO/m0xu0KfetrdfOVKqPLr/NJyOyavqcXupV00BYLellgLCDZ/50BMmebphAcUnBTcUJSiOr8PA==",
+  "dgSpecHash": "mkOzy6rlA/O0F2zWeF2RX4ExmPKRchFkPy7aqFsvxHGmJmQKvwEOlVVNAfYKdn3gqTSbKvyQ0Chp7d3wbBI6EA==",
   "success": true,
-  "projectFilePath": "D:\\DEV\\Test Empresas\\Interfell\\Src\\Api\\IntefellApi_V1\\Utilities\\Utilities.csproj",
+  "projectFilePath": "D:\\DEV\\.Net\\Interfell\\Src\\Api\\IntefellApi_V1\\Utilities\\Utilities.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

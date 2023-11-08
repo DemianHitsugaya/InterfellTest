@@ -1,12 +1,31 @@
 version: "3.8"
 services:
-mysql:
+    mysql:
         container_name: mysql
         ports: 
-            - 4306:3306
+            - 3306:3306
         environment:
             - MYSQL_DATABASE=interfell
             - MYSQL_ROOT_PASSWORD=Interfell
         volumes:
-            - ./src/DataBase/:/docker-entrypoint-initdb.d/
+            - ./DataBase/Version01.sql:/docker-entrypoint-initdb.d/initdb.sql
         image: mysql:8.2
+        
+    interfell:
+        container_name: interfell
+        ports:
+            - 5251:80
+            - 7012:443
+        environment: 
+            - ASPNETCORE_ENVIRONMENT=Production
+        volumes:
+            - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+            - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro       
+        build: 
+            context: .
+            dockerfile: ./Api/IntefellApi_V1/Interfell.API/Dockerfile
+        restart: on-failure
+        depends_on:
+            - mysql
+        links:
+            - mysql

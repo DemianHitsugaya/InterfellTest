@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "kB7hdKAv7iwdzuHb/1i07pHGEWmcpFIT9uqjxocXnsvgnR7wfZ8sc+1mn3l0CcQnxQ1mfLIVZ/w/yGiXY9D4nQ==",
+  "dgSpecHash": "V2NefBnWJxMjxRPEfmnINNRfqrnHLs/+MZ1Rvl4/s8sNnyP5zp2yM79pAGhbA/vD1/osINs5dC3hOMnNETTI3g==",
   "success": true,
-  "projectFilePath": "D:\\DEV\\Test Empresas\\Interfell\\Src\\Api\\IntefellApi_V1\\Facade\\Facade.csproj",
+  "projectFilePath": "D:\\DEV\\.Net\\Interfell\\Src\\Api\\IntefellApi_V1\\Facade\\Facade.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\user\\.nuget\\packages\\aspnet.core.repository\\2.1.0\\aspnet.core.repository.2.1.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
